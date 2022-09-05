@@ -1,0 +1,13 @@
+version: v1
+name: buf.build/cryptomera/osmosis
+deps:
+    - buf.build/cryptomera/gogo-proto
+    - buf.build/googleapis/googleapis
+breaking:
+  use:
+    - FILE
+  ignore:
+    - gogoproto
+lint:
+  use:
+    - DEFAULT

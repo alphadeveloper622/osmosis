@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package cosmos.base.tendermint.vibeta1;
+
+import "p2p/types.proto";
+import "google/api/annotations.proto";
+
+option go_package = "client/grpc/tmservice";
+
+service Service {
+  // get node info the gRPC querier service for queries.
+  rpc GetNodeInfo(GetNodeInfoRequest) returns (GetNodeInfoResponse) {
+    option (google.api.http).get = "/cosmos/base/tendermint/v1beta1/node_info";
+  }
+}
+
+// GetNodeInfoRequest is the request type for the Query/GetNodeInfo RPC method.
+message GetNodeInfoRequest {}
+
+// GetNodeInfoResponse is the response type for the Query/GetNodeInfo RPC
+// method.
+message GetNodeInfoResponse {
+  .tendermint.p2p.DefaultNodeInfo default_node_info   = 1;
+}
